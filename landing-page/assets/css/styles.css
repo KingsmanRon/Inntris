@@ -574,6 +574,27 @@ header .right .btn-primary {
     font-weight: 500;
 }
 
+/* WHY INNTRIS */
+#why-inntris {
+    border-top: 1px solid var(--border-color);
+}
+
+.why-inntris__content {
+    max-width: 650px;
+}
+
+.why-inntris__content p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    color: var(--text-secondary);
+}
+
+.why-inntris__content em {
+    color: var(--primary-color);
+    font-style: italic;
+}
+
 /* DESIGN PARTNERS */
 #partners {
     border-top: 1px solid var(--border-color);
