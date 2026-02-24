@@ -3,17 +3,18 @@
 
 /* VARIABLES */
 :root {
-    --primary-color: #635bff;
-    --primary-hover: #4b45c7;
+    --primary-color: #00d4aa;
+    --primary-hover: #00b892;
+    --accent-blue: #3b82f6;
     --secondary-color: #0a2540;
-    --bg-dark: #0a0e27;
-    --bg-darker: #060918;
-    --bg-card: #111538;
-    --bg-card-hover: #161b42;
-    --text-primary: #ffffff;
-    --text-secondary: #a3b3c9;
-    --text-muted: #6b7c93;
-    --border-color: #1e2548;
+    --bg-dark: #0a0e1a;
+    --bg-darker: #060810;
+    --bg-card: #111827;
+    --bg-card-hover: #1a2235;
+    --text-primary: #f3f4f6;
+    --text-secondary: #9ca3af;
+    --text-muted: #6b7280;
+    --border-color: #1f2937;
     --green: #00d4aa;
     --red: #ff5c6c;
     --yellow: #fbbf24;
@@ -217,7 +218,7 @@ header .right .btn-primary {
     display: flex;
     align-items: center;
     padding-top: 8rem !important;
-    background: radial-gradient(ellipse at 50% 0%, rgba(99, 91, 255, 0.15) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 50% 0%, rgba(0, 212, 170, 0.15) 0%, transparent 60%);
 }
 
 .hero__content {
@@ -231,8 +232,8 @@ header .right .btn-primary {
     font-size: 0.75rem;
     font-weight: 500;
     color: var(--primary-color);
-    border: 1px solid rgba(99, 91, 255, 0.3);
-    background: rgba(99, 91, 255, 0.1);
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    background: rgba(0, 212, 170, 0.1);
     margin-bottom: 1.5rem;
 }
 
@@ -240,8 +241,16 @@ header .right .btn-primary {
     font-size: 3.75rem;
     font-weight: 900;
     line-height: 1.05;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.03em;
+}
+
+.hero__tagline {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
 }
 
 .hero__content .text {
@@ -281,7 +290,7 @@ header .right .btn-primary {
 /* SOLUTION */
 #solution {
     border-top: 1px solid var(--border-color);
-    background: linear-gradient(180deg, rgba(99, 91, 255, 0.03) 0%, transparent 50%);
+    background: linear-gradient(180deg, rgba(0, 212, 170, 0.03) 0%, transparent 50%);
 }
 
 .features {
@@ -299,7 +308,7 @@ header .right .btn-primary {
 }
 
 .feature:hover {
-    border-color: rgba(99, 91, 255, 0.3);
+    border-color: rgba(0, 212, 170, 0.3);
     background: var(--bg-card-hover);
 }
 
@@ -313,7 +322,7 @@ header .right .btn-primary {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: rgba(99, 91, 255, 0.1);
+    background: rgba(0, 212, 170, 0.1);
 }
 
 .feature__title {
@@ -327,6 +336,26 @@ header .right .btn-primary {
     font-size: 0.9rem;
     line-height: 1.7;
     color: var(--text-secondary);
+}
+
+.pull-quote {
+    margin-top: 3rem;
+    padding: 1.5rem 2rem;
+    border-left: 3px solid var(--primary-color);
+    background: rgba(0, 212, 170, 0.04);
+    border-radius: 0 8px 8px 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pull-quote p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.7;
+    color: var(--text-primary);
+    font-style: italic;
+    margin: 0;
 }
 
 /* HOW IT WORKS */
@@ -408,7 +437,7 @@ header .right .btn-primary {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: rgba(99, 91, 255, 0.15);
+    background: rgba(0, 212, 170, 0.15);
     color: var(--primary-color);
     font-weight: 700;
     font-size: 0.9rem;
@@ -446,7 +475,7 @@ header .right .btn-primary {
 /* VERIFICATION RESPONSE */
 #verification {
     border-top: 1px solid var(--border-color);
-    background: linear-gradient(180deg, rgba(99, 91, 255, 0.03) 0%, transparent 50%);
+    background: linear-gradient(180deg, rgba(0, 212, 170, 0.03) 0%, transparent 50%);
 }
 
 .response-grid {
@@ -519,7 +548,7 @@ header .right .btn-primary {
 }
 
 .pillar:hover {
-    border-color: rgba(99, 91, 255, 0.3);
+    border-color: rgba(0, 212, 170, 0.3);
 }
 
 .pillar__icon {
@@ -532,7 +561,7 @@ header .right .btn-primary {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    background: rgba(99, 91, 255, 0.1);
+    background: rgba(0, 212, 170, 0.1);
 }
 
 .pillar__title {
@@ -546,32 +575,6 @@ header .right .btn-primary {
     font-size: 0.9rem;
     line-height: 1.7;
     color: var(--text-secondary);
-}
-
-/* VISA ANALOGY */
-#analogy {
-    border-top: 1px solid var(--border-color);
-    background: linear-gradient(180deg, rgba(99, 91, 255, 0.05) 0%, transparent 100%);
-}
-
-.analogy__content {
-    max-width: 700px;
-}
-
-.analogy__content .section-heading {
-    font-size: 2.25rem;
-}
-
-.analogy__content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
-    color: var(--text-secondary);
-}
-
-.analogy__content p:last-of-type {
-    color: var(--text-primary);
-    font-weight: 500;
 }
 
 /* WHY INNTRIS */
@@ -650,7 +653,7 @@ header .right .btn-primary {
 /* TECHNICAL SPECS */
 #specs {
     border-top: 1px solid var(--border-color);
-    background: linear-gradient(180deg, rgba(99, 91, 255, 0.03) 0%, transparent 50%);
+    background: linear-gradient(180deg, rgba(0, 212, 170, 0.03) 0%, transparent 50%);
 }
 
 .specs-grid {
