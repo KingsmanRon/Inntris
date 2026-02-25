@@ -3,265 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Inntris INC — The protective shell for AI agents. Advanced verification infrastructure." />
-  <!-- CSS (unchanged template styles) -->
+  <meta name="description" content="Inntris INC — The protective shell for AI agents. Advanced verification infrastructure providing cryptographic identity, policy enforcement, and tamper-evident audit trails for autonomous systems." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <!-- FONTAWESOME -->
   <link rel="stylesheet" href="assets/css/fontawesome.min.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/logo-180.png" />
   <title>Inntris — Verification Infrastructure for AI Agents</title>
-  <style>
-    /* minimal additions for code/response blocks – only to preserve readability */
-    .code-block, .response-card {
-      background: #f8fafc;
-      border-radius: 12px;
-      border: 1px solid #e9edf4;
-      font-family: 'SF Mono', 'Fira Code', monospace;
-      margin: 1.5rem 0;
-    }
-    .code-block__header {
-      padding: 0.75rem 1.5rem;
-      background: #f1f5f9;
-      border-bottom: 1px solid #e2e8f0;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      border-radius: 12px 12px 0 0;
-    }
-    .code-block__dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .red { background: #ef4444; }
-    .yellow { background: #f59e0b; }
-    .green { background: #10b981; }
-    .code-block__filename {
-      margin-left: auto;
-      font-size: 0.8rem;
-      color: #64748b;
-    }
-    .code-block__body {
-      padding: 1.5rem;
-      margin: 0;
-      overflow-x: auto;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: #0f172a;
-    }
-    .code-key   { color: #7c3aed; }
-    .code-string { color: #059669; }
-    .code-number { color: #dc2626; }
-    .code-approved { color: #059669; font-weight: 600; }
-    .code-blocked { color: #dc2626; font-weight: 600; }
-    .response-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .response-card {
-      padding: 1.5rem;
-      background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    }
-    .response-card__badge {
-      display: inline-block;
-      padding: 0.25rem 1rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      background: #e9edf4;
-    }
-    .response-card__badge.approved { background: #d1fae5; color: #065f46; }
-    .response-card__badge.blocked { background: #fee2e2; color: #991b1b; }
-    .response-card__body {
-      margin-top: 1rem;
-      background: transparent;
-      border: none;
-      padding: 0;
-    }
-    .hero__badge {
-      display: inline-block;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
-      background: rgba(192, 74, 226, 0.1);
-      padding: 0.35rem 1rem;
-      border-radius: 40px;
-      color: var(--primary-color);
-      font-weight: 500;
-    }
-    .logo-text {
-      font-size: 1.8rem;
-      font-weight: 700;
-      font-family: var(--secondary-font);
-      color: var(--secondary-color);
-      line-height: 1;
-    }
-    .header__logo { display: flex; align-items: center; }
-
-    /* partner section */
-    .partner-grid {
-      display: flex;
-      gap: 3rem;
-      margin: 3rem 0;
-    }
-    .partner-col {
-      flex: 1;
-      background: #f9fafc;
-      padding: 2rem;
-      border-radius: 16px;
-    }
-    .partner-col h3 {
-      margin-bottom: 1.5rem;
-      font-size: 1.3rem;
-    }
-    .partner-col ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      opacity: 0.9;
-    }
-    .partner-col li {
-      margin-bottom: 0.75rem;
-    }
-
-    /* process steps: 4 columns */
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-    .process-step {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 1.8rem 1.2rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-      border: 1px solid #f0f2f5;
-      transition: all 0.2s;
-    }
-    .process-step:hover {
-      box-shadow: 0 8px 25px rgba(192,74,226,0.08);
-    }
-    .process-step__number {
-      width: 44px;
-      height: 44px;
-      background: var(--primary-color);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.4rem;
-      margin-bottom: 1.5rem;
-    }
-    .process-step h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.75rem;
-    }
-    .process-step p {
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* pillars distinct style (different from feature/service cards) */
-    .pillar-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin: 3rem 0;
-    }
-    .pillar-card {
-      background: linear-gradient(145deg, #f8f4ff, #ffffff);
-      border-radius: 24px;
-      padding: 2rem 1.5rem;
-      border: 1px solid #ede9fe;
-      transition: 0.2s;
-    }
-    .pillar-card:hover {
-      border-color: var(--primary-color);
-    }
-    .pillar-card i {
-      font-size: 2rem;
-      color: var(--primary-color);
-      margin-bottom: 1.2rem;
-    }
-    .pillar-card h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-    .pillar-card p {
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    /* team: founder centered, technology row */
-    .founder-row {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 3rem;
-    }
-    .founder-card {
-      max-width: 320px;
-      text-align: center;
-    }
-    .founder-card .member__img img {
-      border-radius: 50%;
-      max-width: 200px;
-      margin: 0 auto;
-    }
-    .tech-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-    .tech-card {
-      background: #ffffff;
-      border-radius: 16px;
-      padding: 1.8rem 1rem;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-      border: 1px solid #eef2f6;
-    }
-    .tech-card i {
-      font-size: 2.2rem;
-      color: var(--primary-color);
-      margin-bottom: 1rem;
-    }
-    .tech-card h4 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .tech-card p {
-      font-size: 0.85rem;
-      opacity: 0.7;
-    }
-
-    /* responsiveness */
-    @media screen and (max-width: 1000px) {
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .pillar-grid { grid-template-columns: repeat(2, 1fr); }
-      .tech-row { grid-template-columns: repeat(1, 1fr); }
-    }
-    @media screen and (max-width: 600px) {
-      .process-grid { grid-template-columns: 1fr; }
-      .pillar-grid { grid-template-columns: 1fr; }
-      .partner-grid { flex-direction: column; }
-    }
-
-    /* ensure features are side by side (already in template, but we reaffirm) */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 2rem;
-    }
-  </style>
 </head>
 <body>
   <!-- HEADER -->
@@ -275,14 +23,14 @@
           <li><a href="#hero">Home</a></li>
           <li><a href="#problem">Problem</a></li>
           <li><a href="#solution">Solution</a></li>
-          <li><a href="#partners">Partners</a></li>
-          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
           <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#partners">Design Partners</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
       <div class="right flex-center">
-        <a href="#partners" class="btn btn-primary">Apply for Early Access</a>
+        <a href="#contact" class="btn btn-primary">Apply for Early Access</a>
         <div class="menu-btn">
           <i class="fas fa-bars"></i>
         </div>
@@ -291,357 +39,387 @@
   </header>
 
   <!-- HERO -->
-  <section id="hero" class="container flex-row">
-    <div class="hero__content" data-aos="fade-right">
-      <span class="hero__badge">Pre-revenue · Seeking design partners</span>
-      <h1 class="title">The protective shell for the AI brain.</h1>
-      <p class="text">Inntris provides security infrastructure and defensive protocols for AI agents. Cryptographic identity, policy enforcement, and tamper-evident audit trails — one API call before every agent action.</p>
-      <div style="display: flex; gap: 1rem; margin-top: 2rem;">
-        <a href="#partners" class="btn btn-primary">Apply for Design Partner Program</a>
-        <a href="#how-it-works" class="btn btn-secondary">See how it works</a>
-      </div>
-    </div>
-    <div class="hero__img" data-aos="fade-left">
-      <img src="assets/img/hero.png" alt="Inntris abstract security layer" />
-    </div>
-    <div class="gradient"></div>
-    <!-- decorative elements -->
-    <div class="design-elements">
-      <img src="assets/img/design/element-1.svg" alt="" class="element-1" />
-      <img src="assets/img/design/element-2.svg" alt="" class="element-2" />
-      <img src="assets/img/design/element-3.svg" alt="" class="element-3" />
-      <img src="assets/img/design/element-4.svg" alt="" class="element-4" />
-      <img src="assets/img/design/element-5.svg" alt="" class="element-5" />
-      <img src="assets/img/design/element-6.svg" alt="" class="element-6" />
-      <img src="assets/img/design/element-7.svg" alt="" class="element-7" />
-      <img src="assets/img/design/element-8.svg" alt="" class="element-8" />
-      <img src="assets/img/design/element-9.svg" alt="" class="element-9" />
-      <img src="assets/img/design/element-10.svg" alt="" class="element-10" />
-      <img src="assets/img/design/element-11.svg" alt="" class="element-11" />
-      <img src="assets/img/design/element-12.png" alt="" class="element-12" />
-      <img src="assets/img/design/element-13.svg" alt="" class="element-13" />
-      <img src="assets/img/design/element-14.png" alt="" class="element-14" />
-    </div>
-  </section>
-
-  <!-- PROBLEM + SOLUTION (three features side by side) -->
-  <section id="problem" class="container flex-center flex-column">
-    <h5 class="section-subheading" data-aos="fade-up">The problem</h5>
-    <h2 class="section-heading text-center" data-aos="fade-up">AI agents are acting. Nobody's verifying.</h2>
-    <div class="features text-center">
-      <div class="feature" style="--color: #c04ae2" data-aos="fade-up">
-        <div class="feature__icon"><i class="fas fa-key"></i></div>
-        <h3 class="feature__title">Cryptographic Identity</h3>
-        <p class="feature__text">Every agent gets a unique Ed25519 keypair. Every action is signed. Zero trust by default.</p>
-      </div>
-      <div class="feature" style="--color: #5cd8a5" data-aos="fade-up" data-aos-delay="50">
-        <div class="feature__icon"><i class="fas fa-shield-alt"></i></div>
-        <h3 class="feature__title">Policy Enforcement</h3>
-        <p class="feature__text">Spending limits, rate controls, action-type restrictions enforced before execution.</p>
-      </div>
-      <div class="feature" style="--color: #fea95b" data-aos="fade-up" data-aos-delay="100">
-        <div class="feature__icon"><i class="fas fa-link"></i></div>
-        <h3 class="feature__title">Tamper-Evident Audit Trail</h3>
-        <p class="feature__text">Every decision logged immutably, batched into Merkle trees, anchored to blockchain hourly.</p>
-      </div>
-    </div>
-    <!-- deeper problem statement -->
-    <div class="about__details flex-center">
-      <div class="about__details-content" data-aos="fade-right">
-        <h1>Agents operate in the dark</h1>
-        <p>When an agent sends $50,000 to a fraudulent account, the company has no cryptographic proof, no evidence of authorisation, and no defensible audit trail in court. Enterprises want to deploy AI agents but can't — compliance, risk, and security teams lack the infrastructure.</p>
-        <p>Inntris brings verification to every agent action: identity, policy, and immutable records. Without it, the answer is no.</p>
-        <a href="#how-it-works" class="btn btn-primary">See how we fix this</a>
-      </div>
-      <div class="about__details-img" data-aos="fade-left">
-        <img src="assets/img/about.png" alt="Agent acting in the dark" />
+  <section id="hero">
+    <div class="container">
+      <div class="hero__content" data-aos="fade-up">
+        <h1 class="title">Verification Infrastructure for AI Agents</h1>
+        <p class="hero__tagline">The protective shell for the AI brain.</p>
+        <p class="text">
+          Cryptographic identity. Policy enforcement. Tamper-evident audit trails. One config line. Sub-100ms. MCP-native.
+        </p>
+        <div class="hero__actions">
+          <a href="#contact" class="btn btn-primary">Book a Design Partner Call</a>
+          <a href="https://github.com/KingsmanRon/Inntris/blob/main/README.md" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">View Documentation</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- DESIGN PARTNERS (early access) -->
-  <section id="partners" class="container">
-    <h5 class="section-subheading text-center" data-aos="fade-up">Early access</h5>
-    <h2 class="section-heading text-center" data-aos="fade-up">We're looking for 5 design partners</h2>
-    <div class="partner-grid" data-aos="fade-up">
-      <div class="partner-col">
-        <h3>🔹 What you get</h3>
-        <ul>
-          <li>Full platform access (free during partner period)</li>
-          <li>Direct Slack/Discord channel with engineering team</li>
-          <li>Your use cases shape the product roadmap</li>
-          <li>Priority support and custom integrations</li>
-        </ul>
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <h5 class="section-subheading" data-aos="fade-up">The problem</h5>
+      <h2 class="section-heading" data-aos="fade-up">
+        AI agents are acting. Nobody's verifying.
+      </h2>
+      <div class="problem__content" data-aos="fade-up">
+        <p>
+          AI agents are sending payments, accessing databases, calling external APIs, and executing real-world actions autonomously. Today, there is no standard way to prove what an agent did, whether it was authorised to do it, or if the record of what happened has been tampered with.
+        </p>
+        <p>
+          When an agent sends $50,000 to a fraudulent account, the company has no cryptographic proof of what happened, no evidence the action was unauthorised, and no defensible audit trail in court.
+        </p>
+        <p>
+          Enterprises want to deploy AI agents but can't &mdash; compliance teams need audit trails, risk teams need spending controls, and security teams need identity verification. Without these, the answer is no.
+        </p>
       </div>
-      <div class="partner-col">
-        <h3>🔹 Who we're looking for</h3>
-        <ul>
-          <li>Companies running AI agents in production or preparing to</li>
-          <li>Engineering teams that care about agent accountability</li>
-          <li>Any framework: LangChain, CrewAI, custom MCP, or your own stack</li>
-        </ul>
-      </div>
-    </div>
-    <div class="text-center" data-aos="fade-up">
-      <a href="mailto:ronald@inntris.io" class="btn btn-primary btn-lg" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Apply for Design Partner Program</a>
-      <p style="margin-top: 1rem; opacity: 0.7;">Limited spots — we'll respond within 24h</p>
     </div>
   </section>
 
-  <!-- HOW IT WORKS (process steps in 4 columns) -->
-  <section id="how-it-works" class="container">
-    <h5 class="section-subheading" data-aos="fade-up">Integration</h5>
-    <h2 class="section-heading" data-aos="fade-up">One config line. Sub-100ms overhead.</h2>
-    <!-- code block -->
-    <div class="code-block" data-aos="fade-up">
-      <div class="code-block__header">
-        <span class="code-block__dot red"></span>
-        <span class="code-block__dot yellow"></span>
-        <span class="code-block__dot green"></span>
-        <span class="code-block__filename">mcp_config.json</span>
+  <!-- SOLUTION -->
+  <section id="solution">
+    <div class="container">
+      <h5 class="section-subheading text-center" data-aos="fade-up">The solution</h5>
+      <h2 class="section-heading text-center center" data-aos="fade-up">
+        The trust layer AI agents need.
+      </h2>
+      <div class="features" data-aos="fade-up">
+        <div class="feature">
+          <div class="feature__icon">
+            <i class="fas fa-key"></i>
+          </div>
+          <h3 class="feature__title">Cryptographic Identity</h3>
+          <p class="feature__text">
+            Every agent gets a unique Ed25519 keypair. Every action is signed. If an agent can't prove who it is, it can't act. Zero trust by default.
+          </p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3 class="feature__title">Policy Enforcement</h3>
+          <p class="feature__text">
+            Spending limits, rate controls, action-type restrictions. Set per-agent policies that are enforced before execution, not audited after the fact.
+          </p>
+        </div>
+        <div class="feature">
+          <div class="feature__icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <h3 class="feature__title">Tamper-Evident Audit Trail</h3>
+          <p class="feature__text">
+            Every verification decision is logged immutably. Logs are batched into Merkle trees and anchored to blockchain hourly. Not for debugging &mdash; for court.
+          </p>
+        </div>
       </div>
-      <pre class="code-block__body"><code>{
+      <blockquote class="pull-quote" data-aos="fade-up">
+        <p>Think of it as VISA &mdash; for AI agents. We don't execute actions. We verify they should happen. Identity, policy, proof.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+      <h5 class="section-subheading" data-aos="fade-up">Integration</h5>
+      <h2 class="section-heading" data-aos="fade-up">
+        One config line. Sub-100ms overhead.
+      </h2>
+      <div class="code-block" data-aos="fade-up">
+        <div class="code-block__header">
+          <span class="code-block__dot red"></span>
+          <span class="code-block__dot yellow"></span>
+          <span class="code-block__dot green"></span>
+          <span class="code-block__filename">mcp_config.json</span>
+        </div>
+        <pre class="code-block__body"><code>{
   <span class="code-key">"mcpServers"</span>: {
     <span class="code-key">"inntris-guard"</span>: {
       <span class="code-key">"command"</span>: <span class="code-string">"npx"</span>,
       <span class="code-key">"args"</span>: [<span class="code-string">"inntris-mcp"</span>],
       <span class="code-key">"env"</span>: {
-        <span class="code-key">"INNTRIS_API_URL"</span>: <span class="code-string">"https://api.inntris.io"</span>,
+        <span class="code-key">"INNTRIS_API_URL"</span>: <span class="code-string">"https://api.inntris.com"</span>,
         <span class="code-key">"INNTRIS_AGENT_ID"</span>: <span class="code-string">"your-agent-id"</span>,
         <span class="code-key">"INNTRIS_PRIVATE_KEY_B64"</span>: <span class="code-string">"your-private-key"</span>
       }
     }
   }
 }</code></pre>
-    </div>
-    <!-- process steps in custom 4-col grid -->
-    <div class="process-grid" data-aos="fade-up">
-      <div class="process-step">
-        <div class="process-step__number">1</div>
-        <h3>Agent calls inntris_guard</h3>
-        <p>Before executing a sensitive action, the agent calls the Inntris verification endpoint.</p>
       </div>
-      <div class="process-step">
-        <div class="process-step__number">2</div>
-        <h3>Verify, check, score</h3>
-        <p>Verify Ed25519 signature, check policy, score trust (0-100).</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step__number">3</div>
-        <h3>Approve or block</h3>
-        <p>Returns APPROVED with token or BLOCKED with reason.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-step__number">4</div>
-        <h3>Log immutably</h3>
-        <p>Every decision logged and anchored to blockchain (Base L2).</p>
-      </div>
-    </div>
-    <div class="latency-callout" data-aos="fade-up" style="margin-top: 2rem;">
-      <i class="fas fa-bolt"></i>
-      <span>Average verification: <strong>&lt;50ms</strong>. Your agents don't slow down.</span>
-    </div>
-  </section>
 
-  <!-- ARCHITECTURE (pillars with distinct style) -->
-  <section id="architecture" class="container">
-    <h5 class="section-subheading" data-aos="fade-up">Trust stack</h5>
-    <h2 class="section-heading" data-aos="fade-up">Built for production. Auditable by design.</h2>
-    <div class="pillar-grid" data-aos="fade-up">
-      <div class="pillar-card">
-        <i class="fas fa-fingerprint"></i>
-        <h3>Ed25519 Signatures</h3>
-        <p>Same cryptography as Signal, SSH, and Solana. Every action signed & verified.</p>
-      </div>
-      <div class="pillar-card">
-        <i class="fas fa-plug"></i>
-        <h3>MCP‑Native</h3>
-        <p>Purpose‑built for Anthropic's Model Context Protocol.</p>
-      </div>
-      <div class="pillar-card">
-        <i class="fas fa-cubes"></i>
-        <h3>Blockchain‑Anchored Audit</h3>
-        <p>Merkle trees batched hourly, anchored to Base L2.</p>
-      </div>
-      <div class="pillar-card">
-        <i class="fas fa-ban"></i>
-        <h3>Fail‑Closed Design</h3>
-        <p>If verification fails, the action is blocked — not just logged.</p>
-      </div>
-    </div>
-    <!-- quick specs line (optional) -->
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-top: 1rem; opacity:0.8; font-size:0.9rem;">
-      <span><strong>10k+</strong> tx/hour</span>
-      <span><strong>&lt;50ms</strong> p95</span>
-      <span><strong>Ed25519</strong> signed</span>
-      <span><strong>Base L2</strong> anchored</span>
-    </div>
-  </section>
-
-  <!-- VERIFICATION RESPONSE (projects) -->
-  <section id="verification" class="container" style="background: none;">
-    <h5 class="section-subheading text-center" data-aos="fade-up">Product</h5>
-    <h2 class="section-heading text-center" data-aos="fade-up">What verification looks like.</h2>
-    <div class="projects" style="margin-top: 2rem;">
-      <div class="project" data-aos="fade-right">
-        <div class="project__img">
-          <img src="assets/img/project-1.png" alt="Approved response" />
+      <div class="steps" data-aos="fade-up">
+        <div class="step">
+          <div class="step__number">1</div>
+          <div class="step__content">
+            <h4>Agent calls inntris_guard</h4>
+            <p>Before executing a sensitive action, the agent calls the Inntris verification endpoint.</p>
+          </div>
         </div>
-        <div class="project__content">
-          <h3 class="project__category">APPROVED</h3>
-          <h3 class="project__title">Action allowed, token issued</h3>
-          <div class="response-card" style="margin:0; padding:1rem; background:#f9f9fc;">
-            <pre style="margin:0; font-size:0.8rem;"><code>{
-  "verdict": "approved",
-  "trust_score": 87,
-  "approval_token": "eyJhbG...",
-  "audit_id": "550e8400-e29b-41d4-a716-446655440000",
-  "limits_remaining": {
-    "daily_limit_usd": "5000.00",
-    "daily_remaining_usd": "3750.00"
+        <div class="step">
+          <div class="step__number">2</div>
+          <div class="step__content">
+            <h4>Verify, check, score</h4>
+            <p>Inntris verifies identity (Ed25519 signature), checks policy (limits, permissions), and scores trust (0-100).</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">3</div>
+          <div class="step__content">
+            <h4>Approve or block</h4>
+            <p>Returns APPROVED with cryptographic token &mdash; or BLOCKED with reason.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__number">4</div>
+          <div class="step__content">
+            <h4>Log immutably</h4>
+            <p>Every decision is logged immutably and anchored to blockchain.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="latency-callout" data-aos="fade-up">
+        <i class="fas fa-bolt"></i>
+        <span>Average verification: <strong>&lt;50ms p95</strong>. Your agents don't slow down.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERIFICATION RESPONSE -->
+  <section id="verification">
+    <div class="container">
+      <h5 class="section-subheading text-center" data-aos="fade-up">Product</h5>
+      <h2 class="section-heading text-center center" data-aos="fade-up">
+        What verification looks like.
+      </h2>
+      <div class="response-grid" data-aos="fade-up">
+        <div class="response-card approved">
+          <div class="response-card__header">
+            <span class="response-card__badge approved">APPROVED</span>
+          </div>
+          <pre class="response-card__body"><code>{
+  <span class="code-key">"verdict"</span>: <span class="code-approved">"approved"</span>,
+  <span class="code-key">"trust_score"</span>: <span class="code-number">87</span>,
+  <span class="code-key">"approval_token"</span>: <span class="code-string">"eyJhbG..."</span>,
+  <span class="code-key">"audit_id"</span>: <span class="code-string">"550e8400-e29b-41d4-a716-446655440000"</span>,
+  <span class="code-key">"limits_remaining"</span>: {
+    <span class="code-key">"daily_limit_usd"</span>: <span class="code-string">"5000.00"</span>,
+    <span class="code-key">"daily_spent_usd"</span>: <span class="code-string">"1250.00"</span>,
+    <span class="code-key">"daily_remaining_usd"</span>: <span class="code-string">"3750.00"</span>
   }
 }</code></pre>
+        </div>
+        <div class="response-card blocked">
+          <div class="response-card__header">
+            <span class="response-card__badge blocked">BLOCKED</span>
           </div>
-          <a href="#" class="btn btn-secondary">View full schema</a>
-        </div>
-      </div>
-      <div class="project" data-aos="fade-left">
-        <div class="project__img">
-          <img src="assets/img/project-2.png" alt="Blocked response" />
-        </div>
-        <div class="project__content">
-          <h3 class="project__category">BLOCKED</h3>
-          <h3 class="project__title">Policy violation, action prevented</h3>
-          <div class="response-card" style="margin:0; padding:1rem; background:#f9f9fc;">
-            <pre style="margin:0; font-size:0.8rem;"><code>{
-  "verdict": "blocked",
-  "verdict_reason": "Daily spending limit exceeded",
-  "trust_score": 42,
-  "policy_violated": "daily_limit_usd"
+          <pre class="response-card__body"><code>{
+  <span class="code-key">"verdict"</span>: <span class="code-blocked">"blocked"</span>,
+  <span class="code-key">"verdict_reason"</span>: <span class="code-string">"Daily spending limit exceeded"</span>,
+  <span class="code-key">"trust_score"</span>: <span class="code-number">42</span>,
+  <span class="code-key">"policy_violated"</span>: <span class="code-string">"daily_limit_usd"</span>
 }</code></pre>
-          </div>
-          <a href="#" class="btn btn-secondary">Understand policies</a>
-        </div>
-      </div>
-      <div class="project" data-aos="fade-right">
-        <div class="project__img">
-          <img src="assets/img/project-3.png" alt="Audit trail" />
-        </div>
-        <div class="project__content">
-          <h3 class="project__category">IMMUTABLE AUDIT</h3>
-          <h3 class="project__title">Every decision anchored to Base L2</h3>
-          <p class="project__text">Merkle root committed hourly. Tamper‑evident logs retained for 7 years. Proof of existence, proof of integrity.</p>
-          <a href="#architecture" class="btn btn-secondary">View specs</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- TEAM (founder centered + technology row) -->
-  <section id="team" class="container">
-    <h5 class="section-subheading text-center" data-aos="fade-up">Team & core technology</h5>
-    <h2 class="section-heading text-center" data-aos="fade-up">Built by infrastructure engineers.</h2>
-    <!-- founder centered -->
-    <div class="founder-row" data-aos="zoom-in">
-      <div class="founder-card member">
-        <div class="member__img">
-          <img src="assets/img/member-1.png" alt="Ronald Maduna" />
-        </div>
-        <div class="member__content">
-          <h1>Ronald Maduna</h1>
-          <p>Multi‑Cloud Architect (ex‑Deloitte, BMW)</p>
-          <a href="https://www.linkedin.com/in/ronaldmaduna/" target="_blank" style="font-size:0.9rem;">LinkedIn <i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-    <!-- technology row (three distinct cards) -->
-    <div class="tech-row" data-aos="fade-up">
-      <div class="tech-card">
-        <i class="fas fa-key"></i>
-        <h4>Ed25519</h4>
-        <p>Cryptographic identity backbone, same security as SSH &amp; Signal.</p>
-      </div>
-      <div class="tech-card">
-        <i class="fas fa-plug"></i>
-        <h4>MCP‑native</h4>
-        <p>Native integration, no wrappers — built for Model Context Protocol.</p>
-      </div>
-      <div class="tech-card">
-        <i class="fas fa-link"></i>
-        <h4>Base L2</h4>
-        <p>Blockchain‑anchored audit trail, hourly Merkle commitments.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS / VISA ANALOGY -->
-  <section id="testimonials" class="container flex-row" style="gap: 3rem;">
-    <div class="testimonials-wrapper" data-aos="fade-right" style="width: 60%;">
-      <p class="quotes"><i class="fas fa-quote-left"></i></p>
-      <h2 class="section-heading" style="font-size: 2.2rem;">Think of it as VISA — for AI agents.</h2>
-      <p class="testimonial__text">VISA doesn't handle your money. VISA verifies the transaction is authorised before it happens. Inntris works the same way — we don't execute agent actions, we verify they should happen. Cryptographic identity, policy check, immutable record. Every company deploying AI agents will need this layer. We're building it.</p>
-      <div class="testimonial__author">
-        <h3>Inntris team</h3>
-        <p>the trust layer</p>
-      </div>
-    </div>
-    <div class="testimonials__img" data-aos="fade-left" style="width: 40%;">
-      <img src="assets/img/testimonials.png" alt="Visa analogy visual" />
-    </div>
-    <div class="design-elements">
-      <img src="assets/img/design/element-18.svg" alt="" class="element-18" />
-      <img src="assets/img/design/element-19.svg" alt="" class="element-19" />
-      <img src="assets/img/design/element-20.svg" alt="" class="element-20" />
-    </div>
-  </section>
-
-  <!-- CONTACT (original form) -->
-  <section id="contact" style="background: url(assets/img/contact-bg.png); background-repeat: no-repeat; background-position: right; background-size: contain;">
+  <!-- ARCHITECTURE -->
+  <section id="architecture">
     <div class="container">
-      <h5 class="section-subheading text-center" data-aos="fade-up">Contact Us</h5>
-      <h2 class="section-heading text-center right left" data-aos="fade-up">Stay connected with us for any reason</h2>
-      <div class="contact">
-        <form action="#" class="contact-form" data-aos="fade-right">
-          <h1>Write us a message</h1>
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <input type="text" placeholder="Subject" required />
-          <textarea rows="5" required placeholder="Your Message"></textarea>
-          <button class="btn btn-primary">Send Message</button>
-        </form>
-        <div class="contact-details" data-aos="fade-left">
-          <p class="text">For design partner inquiries, enterprise pilots, or general questions — we'll respond within 24h.</p>
-          <div class="details">
-            <div class="detail">
-              <div class="detail__icon"><i class="fas fa-phone"></i></div>
-              <div class="detail__content">
-                <h3>Phone</h3>
-                <p>+1 (415) 200‑0370</p>
+      <h5 class="section-subheading" data-aos="fade-up">Trust stack</h5>
+      <h2 class="section-heading" data-aos="fade-up">
+        Built for production. Auditable by design.
+      </h2>
+      <div class="pillars" data-aos="fade-up">
+        <div class="pillar">
+          <div class="pillar__icon">
+            <i class="fas fa-fingerprint"></i>
+          </div>
+          <h3 class="pillar__title">Ed25519 Signatures</h3>
+          <p class="pillar__text">
+            Industry standard. Same cryptography as Signal, SSH, and Solana. Every action is signed and verified.
+          </p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">
+            <i class="fas fa-plug"></i>
+          </div>
+          <h3 class="pillar__title">MCP-Native</h3>
+          <p class="pillar__text">
+            Purpose-built for Anthropic's Model Context Protocol. Not adapted &mdash; designed from day one for the protocol that's becoming the standard.
+          </p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">
+            <i class="fas fa-cubes"></i>
+          </div>
+          <h3 class="pillar__title">Blockchain-Anchored Audit</h3>
+          <p class="pillar__text">
+            Merkle trees batched hourly, anchored to Base L2. Cryptographic proof that records existed at a specific time and haven't been altered.
+          </p>
+        </div>
+        <div class="pillar">
+          <div class="pillar__icon">
+            <i class="fas fa-ban"></i>
+          </div>
+          <h3 class="pillar__title">Fail-Closed Design</h3>
+          <p class="pillar__text">
+            If verification fails, the action is blocked. Not logged and ignored &mdash; blocked. Defence in depth for autonomous systems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN PARTNERS -->
+  <section id="partners">
+    <div class="container">
+      <div class="partners__wrapper" data-aos="fade-up">
+        <h5 class="section-subheading">Early access</h5>
+        <h2 class="section-heading">
+          Looking for 5 design partners.
+        </h2>
+        <p class="partners__intro">
+          We're onboarding a small group of companies building AI agents in production. You'll get direct access to the founding team, priority feature development, and early pricing. In return, we need your feedback, edge cases, and real-world agent workloads.
+        </p>
+
+        <div class="partners__grid">
+          <div class="partners__col">
+            <h3>What you get</h3>
+            <ul>
+              <li>Full platform access (free during partner period)</li>
+              <li>Direct Slack/Discord channel with engineering team</li>
+              <li>Your use cases shape the product roadmap</li>
+              <li>Priority support and custom integrations</li>
+            </ul>
+          </div>
+          <div class="partners__col">
+            <h3>Who we're looking for</h3>
+            <ul>
+              <li>Companies running AI agents in production or preparing to</li>
+              <li>Engineering teams that care about agent accountability</li>
+              <li>Any framework: LangChain, CrewAI, custom MCP, or your own stack</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="#contact" class="btn btn-primary btn-lg">Apply for Design Partner Program</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SPECS -->
+  <section id="specs">
+    <div class="container">
+      <h5 class="section-subheading text-center" data-aos="fade-up">Specifications</h5>
+      <h2 class="section-heading text-center center" data-aos="fade-up">
+        Under the hood.
+      </h2>
+      <div class="specs-grid" data-aos="fade-up">
+        <div class="spec">
+          <span class="spec__label">Signatures</span>
+          <span class="spec__value">Ed25519 (NaCl/libsodium)</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Protocol</span>
+          <span class="spec__value">Model Context Protocol (MCP)</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Audit Storage</span>
+          <span class="spec__value">PostgreSQL + Merkle Trees</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Blockchain</span>
+          <span class="spec__value">Base L2 (Ethereum)</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Latency</span>
+          <span class="spec__value">&lt;50ms average verification</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Throughput</span>
+          <span class="spec__value">10,000+ transactions/hour</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">SDKs</span>
+          <span class="spec__value">Python, Node.js, Go, Rust</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Deployment</span>
+          <span class="spec__value">Railway, Render, Docker, K8s</span>
+        </div>
+        <div class="spec">
+          <span class="spec__label">Compliance</span>
+          <span class="spec__value">GDPR-ready, 7-year audit retention</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section id="founder">
+    <div class="container">
+      <div class="founder__content" data-aos="fade-up">
+        <h5 class="section-subheading">Team</h5>
+        <h2 class="section-heading">
+          Built by infrastructure engineers.
+        </h2>
+        <p>
+          Inntris is built by Ronald Qobolo, a Multi-Cloud Solutions Architect with certifications across AWS, Azure, GCP, and HashiCorp Terraform. After years of building enterprise cloud infrastructure at Deloitte and BMW IT Hub, he saw the gap: AI agents are going to production without the trust infrastructure enterprises require. Inntris is that infrastructure.
+        </p>
+        <a href="https://www.linkedin.com/in/ronald-qobolo-5499911a4/" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+          <i class="fab fa-linkedin"></i> Connect on LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact__grid" data-aos="fade-up">
+        <div class="contact__form-wrapper">
+          <h5 class="section-subheading">Get in touch</h5>
+          <h2 class="section-heading">Send us a message.</h2>
+          <form action="https://formspree.io/f/mpqjkbre" method="POST" class="contact__form">
+            <div class="contact__form-row">
+              <div class="contact__field">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required />
+              </div>
+              <div class="contact__field">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="john@company.com" required />
               </div>
             </div>
-            <div class="detail">
-              <div class="detail__icon"><i class="fas fa-envelope"></i></div>
-              <div class="detail__content">
-                <h3>Email</h3>
-                <p>ronald@inntris.io</p>
-              </div>
+            <div class="contact__field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Design Partner Inquiry" required />
             </div>
-            <div class="detail">
-              <div class="detail__icon"><i class="fas fa-map-marker-alt"></i></div>
-              <div class="detail__content">
-                <h3>Address</h3>
-                <p>548 Market St, San Francisco, CA 94104</p>
-              </div>
+            <div class="contact__field">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your use case..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+          </form>
+        </div>
+        <div class="contact__info">
+          <h3 class="contact__info-title">Let's talk about your agents.</h3>
+          <p class="contact__info-text">
+            Whether you're exploring design partner opportunities, have technical questions, or want to learn how Inntris fits into your agent stack &mdash; we'd love to hear from you. We typically respond within 24 hours.
+          </p>
+          <div class="contact__info-item">
+            <div class="contact__info-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <span class="contact__info-label">Email</span>
+              <a href="mailto:applications@inntris.com" class="contact__info-value">applications@inntris.com</a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="gradient-2"></div>
-    <div class="design-elements">
-      <img src="assets/img/design/element-15.svg" alt="" class="element-15" />
-      <img src="assets/img/design/element-16.svg" alt="" class="element-16" />
-      <img src="assets/img/design/element-17.svg" alt="" class="element-17" />
     </div>
   </section>
 
@@ -653,13 +431,9 @@
           <div class="footer__logo">
             <span class="logo-text">Inntris</span>
           </div>
-          <p class="footer__text">Protecting Intellect. The Universal Liability Shield for Autonomous Agents.</p>
-          <div class="footer__newsletter">
-            <form action="#" class="footer__newsletter-form">
-              <input type="email" placeholder="Submit email" required />
-              <div class="icon"><i class="fa fa-envelope"></i></div>
-            </form>
-          </div>
+          <p class="footer__tagline">
+            Protecting Intellect. The Universal Liability Shield for Autonomous Agents.
+          </p>
         </div>
         <div class="footer__menu">
           <h3 class="footer__menu-title">Product</h3>
@@ -667,22 +441,21 @@
             <li><a href="#solution">Solution</a></li>
             <li><a href="#how-it-works">How It Works</a></li>
             <li><a href="#architecture">Architecture</a></li>
-            <li><a href="#verification">Verification</a></li>
+            <li><a href="#specs">Specs</a></li>
           </ul>
         </div>
         <div class="footer__menu">
           <h3 class="footer__menu-title">Company</h3>
           <ul class="footer__menu-list">
-            <li><a href="#team">Team</a></li>
-            <li><a href="https://github.com/InntrisInc" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/ronaldmaduna/" target="_blank">LinkedIn</a></li>
+            <li><a href="#founder">Team</a></li>
+            <li><a href="https://www.linkedin.com/in/ronald-qobolo-5499911a4/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
           </ul>
         </div>
         <div class="footer__menu">
           <h3 class="footer__menu-title">Connect</h3>
           <ul class="footer__menu-list">
-            <li><a href="mailto:ronald@inntris.io">ronald@inntris.io</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Contact Form</a></li>
+            <li><a href="mailto:applications@inntris.com">applications@inntris.com</a></li>
             <li><a href="#partners">Design Partners</a></li>
           </ul>
         </div>
@@ -690,14 +463,14 @@
       <div class="footer__bottom">
         <p>&copy; 2026 Inntris INC. All rights reserved.</p>
         <div class="footer__bottom-icons">
-          <a href="https://github.com/InntrisInc" target="_blank" class="github"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/ronaldmaduna/" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.linkedin.com/in/ronald-qobolo-5499911a4/" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- scripts -->
   <script src="assets/js/fontawesome.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="assets/js/script.js"></script>
