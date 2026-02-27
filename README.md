@@ -21,7 +21,7 @@ Inntris Core is a production-ready **Verification & Liability Platform** for AI 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
 │                           AI AGENT (Lovable/Replit/LangChain)               │
-│                                      │                                       │
+│                                      │                                      │
 │                          ┌───────────▼───────────┐                          │
 │                          │   MCP Server (Inntris)│                          │
 │                          │   "Universal Adapter" │                          │
